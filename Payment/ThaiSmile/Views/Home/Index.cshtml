@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<h1>Thai Smile</h1>
+<div>
+    <input id="ajaxClick" class="button " type="button" value="Send" />
+    <input id="getClick" class="button " type="button" value="Get Data" />
+    <script>
+        $(document).ready(function () {
+
+            $("#ajaxClick").click(function () {
+                $.post("http://localhost:53918/api/TSTransaction", { 'Amount': 6000, "InsurranceAmount": 600, "DepartureLocation": "BKK", "Destination": "USA" }).done(function (res) {
+                    alert(res);
+                });
+            });
+            $("#getClick").click(function () {
+                $.get("http://localhost:53918/api/TSTransaction")
+                    .success(function (res) {
+                        alert(res);
+                    });
+            });
+        });
+    </script>
+</div>

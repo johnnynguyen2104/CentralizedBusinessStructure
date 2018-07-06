@@ -1,0 +1,16 @@
+﻿<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<h1>VietJet</h1>
+<div>
+    <input id="ajaxClick" class="button " type="button" value="Send" />
+
+    <script>
+        $(document).ready(function () {
+
+            $("#ajaxClick").click(function () {
+                $.get("http://localhost:53918/api/ThaiSmileUser/CreateUser").done(function (res) {
+                    alert(res);
+                });
+            });
+        });
+    </script>
+</div>
